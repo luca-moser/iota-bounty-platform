@@ -1,30 +1,28 @@
 import * as React from 'react';
 import {inject, observer} from 'mobx-react';
+import clsx from "clsx";
+
 import Grid from '@material-ui/core/Grid';
-
-import {UserStore} from "../stores/UserStore";
-
-
-import * as css from './app.scss';
-import {RepositoryStore} from "../stores/RepositoryStore";
 import Divider from '@material-ui/core/Divider';
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import {UIStore} from "../stores/UIStore";
-import clsx from "clsx";
-import {BountyStore} from "../stores/BountyStore";
+
 import {BountyForm} from "./BountyForm";
 import {default as BountyTile} from "./BountyTile";
 
+import {RepositoryStore} from "../stores/RepositoryStore";
+import {BountyStore} from "../stores/BountyStore";
+import {UIStore} from "../stores/UIStore";
+
+import * as css from './app.scss';
+
 interface Props {
-    userStore?: UserStore;
     repoStore?: RepositoryStore;
     bountyStore?: BountyStore;
     uiStore?: UIStore;
 }
 
 @inject("uiStore")
-@inject("userStore")
 @inject("bountyStore")
 @inject("repoStore")
 @observer
@@ -55,7 +53,7 @@ export default class Bounties extends React.Component<Props, {}> {
 
         return (
             <React.Fragment>
-                <Grid container className={css.dashboard} justify="flex-start" spacing={16}>
+                <Grid container justify="flex-start" spacing={16}>
                     <Grid item xs={12}>
                         <Typography component="h2">
                             Bounties ({bountyElements.length})
@@ -79,7 +77,7 @@ export default class Bounties extends React.Component<Props, {}> {
                         {bountyFormOpen && <Divider className={css.dividerSmall}/>}
                     </Grid>
                 </Grid>
-                <Grid container className={css.dashboard} justify="flex-start" spacing={16}>
+                <Grid container justify="flex-start" spacing={16}>
                     {bountyElements.length > 0 ?
                         bountyElements
                         :

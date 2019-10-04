@@ -1,32 +1,30 @@
 import * as React from 'react';
 import {inject, observer} from 'mobx-react';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import {Redirect} from "react-router";
 
-import {withAuth} from "./Authenticated";
-import {UserStore} from "../stores/UserStore";
-
-import * as css from './app.scss';
-import {RepositoryStore} from "../stores/RepositoryStore";
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import LinearProgress from '@material-ui/core/LinearProgress';
-import {UIStore} from "../stores/UIStore";
+
 import {FormState} from "../misc/Misc";
 
+import {RepositoryStore} from "../stores/RepositoryStore";
+import {UIStore} from "../stores/UIStore";
+
+import * as css from './app.scss';
+
 interface Props {
-    userStore?: UserStore;
     repoStore?: RepositoryStore;
     uiStore?: UIStore;
 }
 
-@inject("userStore")
 @inject("repoStore")
 @inject("uiStore")
 @observer
-export class repositoryForm extends React.Component<Props, {}> {
+export class RepositoryForm extends React.Component<Props, {}> {
 
     componentWillUnmount() {
         this.props.repoStore.resetFormData();
@@ -53,7 +51,7 @@ export class repositoryForm extends React.Component<Props, {}> {
 
         return (
             <React.Fragment>
-                <Grid container className={css.dashboard} justify="flex-start" spacing={16}>
+                <Grid container justify="flex-start" spacing={16}>
                     <Grid item xs={12}>
                         <Typography component="h4">
                             New Repository
@@ -113,5 +111,3 @@ export class repositoryForm extends React.Component<Props, {}> {
         );
     }
 }
-
-export let RepositoryForm = withAuth(repositoryForm);

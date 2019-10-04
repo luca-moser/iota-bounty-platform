@@ -1,11 +1,10 @@
 import * as React from 'react';
 import {inject, observer} from 'mobx-react';
+import {Redirect} from "react-router";
+import {Link} from 'react-router-dom';
+import * as dateformat from 'dateformat';
+
 import Grid from '@material-ui/core/Grid';
-
-import {UserStore} from "../stores/UserStore";
-
-import * as css from './app.scss';
-import {RepositoryStore} from "../stores/RepositoryStore";
 import Divider from '@material-ui/core/Divider';
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -15,15 +14,17 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+
 import {Loader} from "./Loader";
 import {BountyState, BountyStore, mapStateToStr} from "../stores/BountyStore";
-import {Link} from 'react-router-dom';
-import * as dateformat from 'dateformat';
+
+import {RepositoryStore} from "../stores/RepositoryStore";
 import {UIStore} from "../stores/UIStore";
-import {Redirect} from "react-router";
+
+import * as css from './app.scss';
+
 
 interface Props {
-    userStore?: UserStore;
     repoStore?: RepositoryStore;
     uiStore?: UIStore;
     bountyStore?: BountyStore;
@@ -34,7 +35,6 @@ interface Props {
     }
 }
 
-@inject("userStore")
 @inject("bountyStore")
 @inject("uiStore")
 @inject("repoStore")
@@ -104,7 +104,7 @@ export default class Bounty extends React.Component<Props, {}> {
                         </Button>
                     </DialogActions>
                 </Dialog>
-                <Grid container className={css.dashboard} justify="flex-start" spacing={16}>
+                <Grid container justify="flex-start" spacing={16}>
                     <Grid item xs={12}>
                         <Typography component="h2">
                             <Link to={`/`}>Repositories</Link><ArrowRight className={css.verticalAlign}/>

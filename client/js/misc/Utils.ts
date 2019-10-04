@@ -25,12 +25,6 @@ export function hasNoWhitespace(s: string) {
     return whitespaceRegex.test(s);
 }
 
-enum LinkKeys {
-    Timeout = "timeout_at",
-    MultiUse = "multi_use",
-    ExpectedAmount = "expected_amount"
-}
-
 export enum FetchConst {
     ContentType = "Content-Type",
     Authorization = "Authorization",

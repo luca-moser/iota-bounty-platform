@@ -1,28 +1,26 @@
 import * as React from 'react';
 import {inject, observer} from 'mobx-react';
+import clsx from "clsx";
+
 import Grid from '@material-ui/core/Grid';
-
-import {UserStore} from "../stores/UserStore";
-
-
-import * as css from './app.scss';
-import {RepositoryStore} from "../stores/RepositoryStore";
-import {default as RepoTile} from "./RepoTile";
 import Divider from '@material-ui/core/Divider';
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import {RepositoryForm} from "./RepositoryForm";
+
+import {default as RepoTile} from "./RepoTile";
+
+import {RepositoryStore} from "../stores/RepositoryStore";
 import {UIStore} from "../stores/UIStore";
-import clsx from "clsx";
+
+import * as css from './app.scss';
 
 interface Props {
-    userStore?: UserStore;
     repoStore?: RepositoryStore;
     uiStore?: UIStore;
 }
 
 @inject("uiStore")
-@inject("userStore")
 @inject("repoStore")
 @observer
 export default class Repositories extends React.Component<Props, {}> {

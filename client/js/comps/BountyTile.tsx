@@ -1,4 +1,8 @@
 import * as React from 'react';
+import {withStyles} from "@material-ui/core";
+import {Link} from 'react-router-dom';
+import * as dateformat from 'dateformat';
+
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -6,14 +10,12 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import LaunchIcon from '@material-ui/icons/Launch';
-import {withStyles} from "@material-ui/core";
-import {Link} from 'react-router-dom';
-import * as dateformat from 'dateformat';
+import Divider from "@material-ui/core/Divider";
+
+import {Bounty, BountyState, mapStateToStr} from "../stores/BountyStore";
+import {Repository} from "../stores/RepositoryStore";
 
 import * as css from './app.scss';
-import {Bounty, BountyState, mapStateToStr} from "../stores/BountyStore";
-import Divider from "@material-ui/core/Divider";
-import {Repository} from "../stores/RepositoryStore";
 
 const styles = {
     card: {

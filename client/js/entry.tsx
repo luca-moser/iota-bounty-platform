@@ -11,15 +11,15 @@ import {configure} from 'mobx';
 import {Provider} from 'mobx-react';
 import {AppContainer} from 'react-hot-loader'
 import {default as App} from './comps/App';
+
 import {AppStoreInstance as appStore} from "./stores/AppStore";
-import {UserStoreInstance as userStore} from "./stores/UserStore";
 import {UIStoreInstance as uiStore} from "./stores/UIStore";
 import {RepositoryStoreInstance as repoStore} from "./stores/RepositoryStore";
 import {BountyStoreInstance as bountyStore} from "./stores/BountyStore";
 
 configure({enforceActions: "observed"});
 
-let stores = {appStore, userStore, uiStore, repoStore, bountyStore};
+let stores = {appStore, uiStore, repoStore, bountyStore};
 
 const render = Component => {
     ReactDOM.render(

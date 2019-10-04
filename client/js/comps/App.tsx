@@ -1,28 +1,26 @@
-import Repository from "./Repository";
-import Bounty from "./Bounty";
-import {UIStore} from "../stores/UIStore";
 import * as React from 'react';
 import {inject, observer} from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
-import {UserStore} from "../stores/UserStore";
 import {withRouter} from "react-router";
 import {Link, Route, Switch} from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
+
+import {UIStore} from "../stores/UIStore";
+
 import * as css from './app.scss';
 
+import Repository from "./Repository";
+import Bounty from "./Bounty";
 import Repositories from "./Repositories";
 
 declare var __DEVELOPMENT__;
 
 interface Props {
-    userStore?: UserStore;
     uiStore?: UIStore;
     classes?: any;
     theme?: any;
@@ -34,9 +32,7 @@ const styles = theme => ({
     root: {
         display: 'flex',
     },
-    appBar: {
-
-    },
+    appBar: {},
     menuButton: {
         marginRight: 20,
         [theme.breakpoints.up('sm')]: {
@@ -50,14 +46,9 @@ const styles = theme => ({
 });
 
 @withRouter
-@inject("userStore")
 @inject("uiStore")
 @observer
 class app extends React.Component<Props, {}> {
-
-    handleDrawerToggle = () => {
-        this.props.uiStore.toggleDrawerOpen();
-    }
 
     render() {
         const {classes} = this.props;

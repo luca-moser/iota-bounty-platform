@@ -10,8 +10,6 @@ import {Repository} from "../stores/RepositoryStore";
 import {withStyles} from "@material-ui/core";
 import {Link} from 'react-router-dom';
 
-import * as css from './app.scss';
-
 const styles = {
     bullet: {
         display: 'inline-block',
