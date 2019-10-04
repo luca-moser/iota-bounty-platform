@@ -15,5 +15,21 @@ Features:
 
 ### Installation
 
+Prerequisites:
+* Ubuntu +18.04
+* Docker
+* Docker Compose
+
+#### Create a bot user
+1. Create a new user account on GitHub which is going to be used for the bot handling bounties/messaging from
+and to the backend system
+2. Generate a personal access token for the bot with permissions for repository and user related actions
+3. Keep the token for later installation instructions
+
+![permissions](https://i.imgur.com/ssVjiTy.png)
+
+#### Setting up the docker image
+
+
 A docker image is provided under `lucamoser/ibp:<version>`.
 
