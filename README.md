@@ -222,7 +222,8 @@ INFO[09-02|20:31:08] listening for web hook events via 127.0.0.1:12111/webhooks 
 ```
 
 It is recommended that you setup a HTTP reverse proxy proxying into the application which also takes
-care of TLS and logging HTTP requests.
+care of TLS and logging HTTP requests. **Note that the application does not ship with authentication
+so using a HTTP reverse proxy with basic HTTP auth is strongly recommended.**
 
 **Troubleshooting:**  
 If you see something like:
