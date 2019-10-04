@@ -7,7 +7,7 @@
     "web_hook": {
       "url": "http://51.154.216.78:12111",
       "url_path": "/webhooks",
-      "listen_address": "0.0.0.0:12111",
+      "listen_address": "0.0.0.0:9000",
       "tls": false
     },
     "sync_interval_seconds": 300

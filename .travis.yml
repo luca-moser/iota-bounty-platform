@@ -1,0 +1,26 @@
+language: go
+go: "1.13.1"
+
+if: tag IS present
+
+env:
+  - GO111MODULE=on
+
+install: true
+
+notifications:
+  email: false
+
+script:
+  - npm i
+  - npm run build:prod
+  - cd ./server/cmd
+  - go get ./...
+  - GOOS=linux GOARCH=amd64 go build --tags="pow_avx" -ldflags="-s -w" -v -o ibp
+  - md5sum ibp
+  - cd ./../..
+
+after_script:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - docker build -t lucamoser/ibp:$TRAVIS_TAG .
+  - docker push lucamoser/ibp:$TRAVIS_TAG

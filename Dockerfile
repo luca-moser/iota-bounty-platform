@@ -9,8 +9,7 @@ RUN mkdir -p /app/assets/css && mkdir -p /app/assets/html \
 RUN mkdir -p /app/configs && mkdir -p /app/logs
 
 # copy server assets
-COPY server/cmd/sigma                   /app/sigma
-COPY server/cmd/mails.html              /app/mails.html
+COPY server/cmd/ibp                     /app/ibp
 COPY server/cmd/configs/app.prod.json   /app/configs/app.json
 
 # copy client assets
