@@ -1,55 +1,38 @@
 {
-  "name": "bip",
+  "name": "ibp",
   "dev": true,
-  "verbose": true,
+  "verbose": false,
+  "github": {
+    "auth_token": "ac05debbe342d8f646e9c6fe6e13643cb0fd4277",
+    "web_hook": {
+      "url": "http://51.154.216.78:12111",
+      "url_path": "/webhooks",
+      "listen_address": "0.0.0.0:12111",
+      "tls": false
+    },
+    "sync_interval_seconds": 300
+  },
   "account": {
+    "node": "https://trinity.iota-tangle.io:14265",
+    "collection": "accounts",
     "mwm": 14,
     "gtta_depth": 3,
     "security_level": 2,
-    "transfer_poll_interval": 15,
-    "promote_reattach_interval": 60,
-    "address_validity_timeout_days": 3,
-    "node": "https://node-x.iota-tangle.io:14268",
-    "ntp_server": "time.google.com",
-    "send": {
-      "timeout_before_threshold": 15,
-      "conf_box_url": "http://88.99.60.78:15265",
-      "conf_rate_avg_mode": 15,
-      "conf_rate_avg_threshold": 0.6
-    }
+    "ntp_server": "time.google.com"
   },
-  "mongo": {
+  "db": {
     "uri": "mongodb://localhost:27017",
-    "dbname": "sigma",
+    "dbname": "ibp",
     "collname": "accounts"
   },
   "http": {
-    "domain": "sigma.io",
-    "address": "0.0.0.0:9000",
+    "domain": "iota-bounty-platform.io",
+    "listen_address": "0.0.0.0:11111",
     "assets": {
       "static": "../../client",
       "favicon": "../../client/img/favicon.ico",
       "html": "../../client/html"
     },
     "logRequests": false
-  },
-  "jwt": {
-    "private_key": "9hdpt095x6dhoko76fwqwyknci7914t6aj7tq3s6aly3b9ap7o5s6nzaeatz50is",
-    "expire_hours": 72
-  },
-  "recaptcha": {
-    "private_key": "REPLACE ME",
-    "public_key": "REPLACE ME"
-  },
-  "mail": {
-    "host": "mail.gandi.net",
-    "username": "sigma@iota-tangle.io",
-    "password": "replaceme",
-    "port": 587,
-    "sender": "sigma@iota-tangle.io"
-  },
-  "links": {
-    "activation": "https://sigma.iota-tangle.io/activate/%s/%s",
-    "password_reset": "https://sigma.iota-tangle.io/pw/reset/%s/%s"
   }
 }

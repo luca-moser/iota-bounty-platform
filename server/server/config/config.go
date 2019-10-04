@@ -52,16 +52,7 @@ type AccountConfig struct {
 	MWM                        uint64 `json:"mwm"`
 	GTTADepth                  uint64 `json:"gtta_depth"`
 	SecurityLevel              uint64 `json:"security_level"`
-	TransferPollInterval       uint64 `json:"transfer_poll_interval"`
-	PromoteReattachInterval    uint64 `json:"promote_reattach_interval"`
-	AddressValidityTimeoutDays uint64 `json:"address_validity_timeout_days"`
 	NTPServer                  string `json:"ntp_server"`
-	Send                       struct {
-		TimeoutBeforeThreshold uint64  `json:"timeout_before_threshold"`
-		ConfBoxURL             string  `json:"conf_box_url"`
-		ConfRateAvgMode        uint64  `json:"conf_rate_avg_mode"`
-		ConfRateAvgThreshold   float64 `json:"conf_rate_avg_threshold"`
-	}
 }
 
 type DBConfig struct {
