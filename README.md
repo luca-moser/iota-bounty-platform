@@ -48,7 +48,7 @@ and to the backend system
 <details>
   <summary>Correct permissions</summary>
   
-    ![permissions](https://i.imgur.com/ssVjiTy.png)
+   ![permissions](https://i.imgur.com/ssVjiTy.png)
   
 </details>
 
@@ -58,7 +58,6 @@ __1.__ Create a `docker-compose.yml` with following content:
 <details>
   <summary>docker-compose.yml</summary>
   
-    ```
     version: '3.3'
     
     services:
@@ -89,7 +88,6 @@ __1.__ Create a `docker-compose.yml` with following content:
                 - '/etc/localtime:/etc/localtime:ro'
             command: --port 27021 --bind_ip=127.0.0.1
             network_mode: "host"
-    ```
   
 </details>
 
@@ -168,7 +166,6 @@ __4.__ Create a `ibp` file with following content:
 <details>
   <summary>ibp</summary>
   
-    ```
     #!/bin/bash
     
     if [[ $1 == 'start' ]]
@@ -196,7 +193,7 @@ __4.__ Create a `ibp` file with following content:
     else
             echo 'commands: <start,stop,restart,reinit,destroy>'
     fi
-    ```
+
 </details>
 
 and make it executable
