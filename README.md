@@ -9,6 +9,7 @@ A platform for linking issues on GitHub to bounties which are payed out using IO
 | [Installation](#installation)
 | [Configuration](#configuration)|
 | [Linking a repository and creating a bounty](#linking-a-repository-and-creating-a-bounty)|
+| [Releasing a bounty](#releasing-a-bounty)|
 
 Features:
 * Use a GitHub account to post messages on linked issues with status updates
@@ -337,3 +338,21 @@ posted by the bot notifying users on the particular issue that the bounty is no 
 > not fetch data from GitHub all the time, so you might see some slight inconsistencies 
 > (wrong issue titles etc.) until the application synchronized itself with GitHub again.
 > The synchronization interval can be changed in the configuration.
+
+## Releasing a bounty
+
+Repository admins are able to simply execute `release bounty to @<username>` in order to release
+a bounty to a specific user. Subsequent comments with the release command will change the specified user.
+
+In the following example the bot also released the bounty (normally this is done by a real person):
+![bounty_release](https://i.imgur.com/gyaEmw7.png)
+
+The bot will post a message about the released bounty with the current balance on the pool address.
+The application will send **all** tokens residing on the pool address at the point at which it sends
+off the transfer to the receiver of the bounty.
+
+When the receiver posts his/her address (must include the checksum and thereby be 90 chars in length)
+the application sends off the bounty:
+![sent_off_bounty](https://i.imgur.com/UfL85oO.png)
+
+> The application/bot will not post any message when the bounty gets deleted if the bounty was sent off previously.
