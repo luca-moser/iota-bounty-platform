@@ -29,10 +29,6 @@ type Configuration struct {
 	Account   AccountConfig
 	HTTP      WebConfig
 	DB        DBConfig
-	Mail      MailConfig
-	JWT       JWTConfig
-	ReCaptcha ReCaptchaConfig
-	Links     LinksConfig
 }
 
 type GitHubConfig struct {
@@ -61,16 +57,6 @@ type DBConfig struct {
 	CollName string `json:"collname"`
 }
 
-type JWTConfig struct {
-	PrivateKey  string `json:"private_key"`
-	ExpireHours uint64 `json:"expire_hours"`
-}
-
-type ReCaptchaConfig struct {
-	PrivateKey string `json:"private_key"`
-	PublicKey  string `json:"public_key"`
-}
-
 type WebConfig struct {
 	Domain        string
 	ListenAddress string `json:"listen_address"`
@@ -80,17 +66,4 @@ type WebConfig struct {
 		Favicon string
 	}
 	LogRequests bool
-}
-
-type MailConfig struct {
-	Host     string
-	Username string
-	Password string
-	Port     int
-	Sender   string
-}
-
-type LinksConfig struct {
-	Activation    string `json:"activation"`
-	PasswordReset string `json:"password_reset"`
 }
