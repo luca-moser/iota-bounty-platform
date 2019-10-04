@@ -1,0 +1,161 @@
+body {
+  box-sizing: border-box;
+}
+
+p{
+  text-wrap: normal;
+}
+
+h1 {
+    font-size: 22px !important;
+    word-wrap: break-word !important;
+}
+
+h2 {
+    font-size: 20px !important;
+    word-wrap: break-word !important;
+}
+
+h3 {
+    font-size: 18px !important;
+    word-wrap: break-word !important;
+}
+
+h4 {
+    font-size: 16px !important;
+    word-wrap: break-word !important;
+}
+
+a{
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.content{
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 60%;
+    left: 20% !important;
+
+    @media (max-width:961px)  {
+        width: 100% !important;
+        left: 0% !important;
+    }
+}
+
+.marginRight {
+    margin-right: 10px;
+}
+
+.topDownMargin {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.marginBottom {
+    margin-bottom: 10px !important;
+}
+
+.marginBottomSmall {
+    margin-bottom: 5px !important;
+}
+
+.divider {
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+}
+
+.dividerSmall {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.dividerMiddle {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.container {
+  position: relative;
+  margin-top: 100px;
+  box-sizing: border-box !important;
+}
+
+.defaultPaperBox {
+  width: 600px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+.tile {
+    height: 200px;
+    width: 400px;
+    padding: 5px;
+    overflow-wrap: break-word !important;
+}
+
+
+.siteTitle {
+    color: white !important;
+}
+
+.underlined {
+    text-decoration: underline !important;
+}
+
+.addressBox{
+    font-size: 12px;
+    padding: 10px;
+    background: lighten(gray, 40%) !important;
+    word-wrap: break-word !important;
+}
+
+.verticalAlign {
+    vertical-align: middle;
+}
+
+.address {
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    background: lighten(gray, 40%) !important;
+}
+
+.addressBig {
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    background: lighten(gray, 40%) !important;
+}
+
+.errorText{
+    color: red !important;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #424242;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #424242;
+}
+
+.addrHelpOutlined {
+  display: inline-block;
+  margin-left: 3px !important;
+}
