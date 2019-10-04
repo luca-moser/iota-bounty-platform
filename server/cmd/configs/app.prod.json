@@ -1,0 +1,38 @@
+{
+  "name": "ibp",
+  "dev": true,
+  "verbose": false,
+  "github": {
+    "auth_token": "",
+    "web_hook": {
+      "url": "http://<ip-address>:12111",
+      "url_path": "/webhooks",
+      "listen_address": "0.0.0.0:9000",
+      "tls": false
+    },
+    "sync_interval_seconds": 300
+  },
+  "account": {
+    "node": "https://trinity.iota-tangle.io:14265",
+    "collection": "accounts",
+    "mwm": 14,
+    "gtta_depth": 3,
+    "security_level": 2,
+    "ntp_server": "time.google.com"
+  },
+  "db": {
+    "uri": "mongodb://localhost:27017",
+    "dbname": "ibp",
+    "collname": "accounts"
+  },
+  "http": {
+    "domain": "iota-bounty-platform.io",
+    "listen_address": "0.0.0.0:11111",
+    "assets": {
+      "static": "../../client",
+      "favicon": "../../client/img/favicon.ico",
+      "html": "../../client/html"
+    },
+    "logRequests": false
+  }
+}
