@@ -71,6 +71,17 @@ func (server *Server) Start() {
 		templates: template.Must(template.ParseGlob(fmt.Sprintf("%s/*.html", httpConfig.Assets.HTML))),
 	}
 
+	// check whether we do basic HTTP auth
+	basicAuthConf := conf.HTTP.BasicAuth
+	if basicAuthConf.Enabled {
+		e.Use(middleware.BasicAuth(func(username, password string, c echo.Context) (bool, error) {
+			if username == basicAuthConf.Username && password == basicAuthConf.Password {
+				return true, nil
+			}
+			return false, nil
+		}))
+	}
+
 	// asset paths
 	e.Static("/assets", httpConfig.Assets.Static)
 	e.File("/favicon.ico", httpConfig.Assets.Favicon)

@@ -28,6 +28,11 @@
   "http": {
     "domain": "iota-bounty-platform.io",
     "listen_address": "0.0.0.0:11111",
+    "basic_auth": {
+      "enabled": true,
+      "username": "admin",
+      "password": "admin"
+    },
     "assets": {
       "static": "./assets",
       "favicon": "./assets/img/favicon.ico",

@@ -60,7 +60,12 @@ type DBConfig struct {
 type WebConfig struct {
 	Domain        string
 	ListenAddress string `json:"listen_address"`
-	Assets        struct {
+	BasicAuth     struct {
+		Enabled  bool
+		Username string
+		Password string
+	} `json:"basic_auth"`
+	Assets struct {
 		Static  string
 		HTML    string
 		Favicon string

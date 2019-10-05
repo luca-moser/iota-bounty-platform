@@ -159,9 +159,10 @@ under `github.web_hook` to your public IP address or domain (note that the port 
 using a HTTP reverse proxy proxying to the application). Note that the default config lets the application
 only listen for webhooks on localhost, this, because it is assumed that a HTTP reverse proxy is used
 to handle TLS and logging of web requests before the application container.
-* Make sure to also modify `github.web_hook.secret` with a secret (the secret is used by GitHub to sign 
+* Make sure to modify `github.web_hook.secret` with a secret (the secret is used by GitHub to sign 
 the web hook payloads).
 * Add the previously generated auth token under `github.auth_token`.
+* Change the values for `http.basic_auth.username` and `http.basic_auth.password`.
 
 __4.__ Create a `ibp` file with following content:
 <details>
@@ -222,9 +223,8 @@ INFO[09-02|20:31:08] checking for web hook https://webhook-ibp.lucamoser.io comp
 INFO[09-02|20:31:08] listening for web hook events via 127.0.0.1:12111/webhooks comp=bot
 ```
 
-It is recommended that you setup a HTTP reverse proxy proxying into the application which also takes
-care of TLS and logging HTTP requests. **Note that the application does not ship with authentication
-so using a HTTP reverse proxy with basic HTTP auth is strongly recommended.**
+It is recommended that you setup a HTTP reverse proxy proxying into the application which takes
+care of TLS and logging HTTP requests.
 
 **Troubleshooting:**  
 If you see something like:
@@ -291,6 +291,13 @@ it means that the defined `github.auth_token` is not valid.
     "domain": "iota-bounty-platform.io",
     // the address and port at which the single-page-application will be served from
     "listen_address": "0.0.0.0:11111",
+    // basic HTTP auth
+    // adjust both for production
+    "basic_auth": {
+      "enabled": true,
+      "username": "admin",
+      "password": "admin"
+    },
     // the folders containing the frontend assets
     // doesn't need to be touched when using the Docker image
     "assets": {
