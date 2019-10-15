@@ -27,12 +27,12 @@ func (br *BountyRouter) Init() {
 			return err
 		}
 
-		repo, err := br.BC.GetByID(id)
+		bounty, err := br.BC.GetByID(id)
 		if err != nil {
 			return err
 		}
 
-		return c.JSON(http.StatusOK, repo)
+		return c.JSON(http.StatusOK, bounty)
 	})
 
 	routeGroup.GET("/:owner/:name", func(c echo.Context) error {

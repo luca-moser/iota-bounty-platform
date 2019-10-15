@@ -1,39 +1,12 @@
 package models
 
 import (
-	"github.com/dgrijalva/jwt-go"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"time"
 )
 
 type Model struct {
 	CreatedOn time.Time  `json:"created_on,omitempty" bson:"created_on,omitempty"`
 	UpdatedOn *time.Time `json:"updated_on,omitempty" bson:"updated_on,omitempty"`
-}
-
-type User struct {
-	Model             `json:",inline"`
-	ID                primitive.ObjectID `json:"id" bson:"_id"`
-	Username          string             `json:"username" bson:"username"`
-	Email             string             `json:"email" bson:"email"`
-	Admin             bool               `json:"admin" bson:"admin"`
-	Password          string             `json:"-" bson:"password"`
-	PasswordSalt      string             `json:"-" bson:"password_salt"`
-	Confirmed         bool               `json:"confirmed" bson:"confirmed"`
-	ConfirmationCode  string             `json:"-" bson:"confirmation_code"`
-	LastAccess        time.Time          `json:"last_access" bson:"last_access"`
-	LastLogin         time.Time          `json:"last_login" bson:"last_login"`
-	Deactivated       bool               `json:"-" bson:"deactivated"`
-	PasswordResetCode string             `json:"-" bson:"password_reset_code"`
-}
-
-type UserJWTClaims struct {
-	jwt.StandardClaims
-	UserID    primitive.ObjectID `json:"user_id"`
-	Username  string             `json:"username"`
-	Auth      bool               `json:"auth"`
-	Confirmed bool               `json:"confirmed"`
-	Admin     bool               `json:"admin"`
 }
 
 type Repository struct {
