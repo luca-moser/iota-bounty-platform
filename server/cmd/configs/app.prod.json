@@ -8,7 +8,7 @@
       "url": "https://<domain>",
       "url_path": "/webhooks",
       "secret": "<secret-key>",
-      "listen_address": "1276.0.0.1:12111",
+      "listen_address": "127.0.0.1:12111",
       "tls": true
     },
     "sync_interval_seconds": 300

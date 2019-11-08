@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  ibp:
+    image: 'lucamoser/ibp:0.1.2'
+    hostname: ibp
+    container_name: ibp
+    stdin_open: true
+    tty: true
+    restart: always
+    volumes:
+      - './app.json:/app/configs/app.json'
+      - '/etc/ssl/certs:/etc/ssl/certs:ro'
+      - '/etc/localtime:/etc/localtime:ro'
+    command: start
+    network_mode: "host"
+  ibpmongo:
+    image: mongo:4.1
+    hostname: ibpmongo
+    container_name: ibpmongo
+    stdin_open: true
+    tty: true
+    restart: always
+    volumes:
+      - './db:/data/db'
+      - './mongod.conf:/etc/mongo/mongod.conf'
+      - '/etc/ssl/certs:/etc/ssl/certs:ro'
+      - '/etc/localtime:/etc/localtime:ro'
+    command: --port 27021 --bind_ip=127.0.0.1
+    network_mode: "host"
