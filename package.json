@@ -14,7 +14,7 @@
     "clsx": "^1.0.4",
     "copy-to-clipboard": "^3.0.8",
     "dateformat": "^3.0.3",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jwt-decode": "^2.2.0",
     "mobx": "^5.9.0",
     "mobx-react": "^5.4.3",
